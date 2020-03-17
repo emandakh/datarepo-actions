@@ -8,7 +8,7 @@ ENV YQ_VERSION 3.2.1
 #add user
 RUN addgroup -S jade
 RUN adduser -D jade -G jade
-USER jade
+
 
 #install consul-template
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /
@@ -32,5 +32,5 @@ RUN gcloud components install app-engine-java kubectl
 # copy down action functions
 COPY ["src", "/src/"]
 RUN chmod -R +wx /src
-
+USER jade
 ENTRYPOINT ["sh","/src/main.sh"]
