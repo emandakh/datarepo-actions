@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function whitelist {
-  if [[ "${GOOGLE_APPLICATION_CREDENTIALS}" != "" ]] && [[ "${k8_cluster}" != "" ]]; then
+  if [[ "$GOOGLE_APPLICATION_CREDENTIALS" != "" ]] && [[ "${k8_cluster}" != "" ]]; then
     CUR_IPS=$(gcloud container clusters describe ${k8_cluster} --format json | \
       jq -r '[.masterAuthorizedNetworksConfig.cidrBlocks[] | .cidrBlock]')
       RUNNER_IP=$(curl 'https://api.ipify.org/?format=text' | xargs printf '[ "%s/32" ]')
@@ -10,7 +10,7 @@ function whitelist {
       --enable-master-authorized-networks \
       --master-authorized-networks ${NEW_IPS}
   else
-    echo "required var not defined for function whitelist"
+    echo "Required var not defined for function whitelist"
     exit 1
   fi
 }

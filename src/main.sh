@@ -74,18 +74,22 @@ function configureCredentials {
       --data '{"role_id":"'"${role_id}"'","secret_id":"'"${secret_id}"'"}' \
       ${vault_address}/v1/auth/approle/login | jq -r .auth.client_token)
     vault read -format=json secret/dsde/datarepo/dev/sa-key.json | \
-      jq .data > ${GOOGLE_APPLICATION_CREDENTIALS}
-    export GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+      jq .data > $GOOGLE_APPLICATION_CREDENTIALS
+    echo 'Configured google sdk credentials from vault'
   fi
 }
 
 function googleAuth {
-  if [[ "${GOOGLE_APPLICATION_CREDENTIALS}" != "" ]] && [[ "${google_zone}" != "" ]] && [[ "${google_project}" != "" ]]; then
-    gcloud auth activate-service-account --key-file ${GOOGLE_APPLICATION_CREDENTIALS}
+  if [[ "$GOOGLE_APPLICATION_CREDENTIALS" != "" ]] && [[ "${google_zone}" != "" ]] && [[ "${google_project}" != "" ]]; then
+    gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
     # configure integration prerequisites
     gcloud config set compute/zone ${google_zone}
     gcloud config set project ${google_project}
     gcloud auth configure-docker
+    echo 'Set google sdk to SA user'
+  else
+    echo "Required var not defined for function googleAuth"
+    exit 1
   fi
 }
 
