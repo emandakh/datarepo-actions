@@ -7,9 +7,6 @@ inputs:
   actions_subcommand:
     description: 'Terraform subcommand to execute.'
     required: true
-  ct_actions_version:
-    description: 'consul-template version to install.'
-    required: true
   role_id:
     description: 'role_id for vault'
   secret_id:

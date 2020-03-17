@@ -67,36 +67,6 @@ function configureCtCredentials {
   fi
 }
 
-function installConsulTemplate {
-  if [[ "${ctVersion}" == "latest" ]]; then
-    echo "Checking the latest version of Consul-Template"
-    ctVersion=$(curl -sL https://releases.hashicorp.com/consul-template/index.json | jq -r '.versions[].version' | grep -v '[-].*' | sort -rV | head -n 1)
-
-    if [[ -z "${ctVersion}" ]]; then
-      echo "Failed to fetch the latest version"
-      exit 1
-    fi
-  fi
-
-  url="https://releases.hashicorp.com/consul-template/${ctVersion}/consul-template_${ctVersion}_linux_amd64.zip"
-
-  echo "Downloading Consul-Template v${ctVersion}"
-  curl -s -S -L -o /tmp/consul_template${ctVersion} ${url}
-  if [ "${?}" -ne 0 ]; then
-    echo "Failed to download Consul-Template v${ctVersion}"
-    exit 1
-  fi
-  echo "Successfully downloaded Consul-Template v${ctVersion}"
-
-  echo "Unzipping Consul-Template v${ctVersion}"
-  unzip -d /usr/local/bin /tmp/consul_template${ctVersion} &> /dev/null
-  if [ "${?}" -ne 0 ]; then
-    echo "Failed to unzip Consul-Template v${ctVersion}"
-    exit 1
-  fi
-  echo "Successfully unzipped Consul-Template v${ctVersion}"
-}
-
 function main {
   # Source the other files to gain access to their functions
   scriptDir=$(dirname ${0})
@@ -109,7 +79,6 @@ function main {
 
   case "${subcommand}" in
     ct_render)
-      installConsulTemplate
       ct_render ${*}
       ;;
     *)
