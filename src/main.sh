@@ -138,7 +138,6 @@ function main {
       ;;
   esac
 }
-whoami
 
 echo "$USER"
 
