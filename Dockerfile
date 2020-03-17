@@ -27,7 +27,7 @@ RUN gcloud components install app-engine-java kubectl
 
 # copy down action functions
 COPY ["src", "/src/"]
-RUN chown -R $USER:$USER /src
+RUN chown -R root:root /src
 RUN chmod -R +wxr /src
 
 ENTRYPOINT ["sh","/src/main.sh"]
