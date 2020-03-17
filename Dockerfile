@@ -25,6 +25,9 @@ RUN apk add --update --no-cache openssl bash ca-certificates curl git jq openssh
 # install kubectl
 RUN gcloud components install app-engine-java kubectl
 
+#add privs probably too many
+RUN addgroup -S jade && adduser -S -G jade jade
+
 # copy down action functions
 COPY ["src", "/src/"]
 RUN chmod -R +x /src

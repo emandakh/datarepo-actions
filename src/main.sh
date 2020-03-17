@@ -91,6 +91,7 @@ function googleAuth {
 
 
 function main {
+  su - jade
   # Source the other files to gain access to their functions
   scriptDir=$(dirname ${0})
   source ${scriptDir}/consul-template.sh
