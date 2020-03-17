@@ -75,15 +75,13 @@ function configureCredentials {
       ${vault_address}/v1/auth/approle/login | jq -r .auth.client_token)
     vault read -format=json secret/dsde/datarepo/dev/sa-key.json | \
       jq .data > /tmp/${GOOGLE_APPLICATION_CREDENTIALS}
-    jq -r .private_key /tmp/${GOOGLE_APPLICATION_CREDENTIALS} > /tmp/${GOOGLE_SA_CERT}
-    chmod 600 /tmp/${GOOGLE_SA_CERT}
     export GOOGLE_APPLICATION_CREDENTIALS=/tmp/${GOOGLE_APPLICATION_CREDENTIALS}
   fi
 }
 
 function googleAuth {
   if [[ "${GOOGLE_APPLICATION_CREDENTIALS}" != "" ]] && [[ "${google_zone}" != "" ]] && [[ "${google_project}" != "" ]]; then
-    gcloud auth activate-service-account --key-file ${GOOGLE_APPLICATION_CREDENTIALS}
+    gcloud auth activate-service-account --key-file /tmp/${GOOGLE_APPLICATION_CREDENTIALS}
     # configure integration prerequisites
     gcloud config set compute/zone ${google_zone}
     gcloud config set project ${google_project}
