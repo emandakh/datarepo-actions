@@ -69,14 +69,14 @@ function parseInputs {
 
 function configureCredentials {
   if [[ "${role_id}" != "" ]] && [[ "${secret_id}" != "" ]] && [[ "${vault_address}" != "" ]]; then
-    VAULT_TOKEN=$(curl \
-          --request POST \
-          --data '{"role_id":"'"${role_id}"'","secret_id":"'"${role_id}"'"}' \
-          ${vault_address}/v1/auth/approle/login | jq -r .auth.client_token)
+    export VAULT_TOKEN=$(curl \
+      --request POST \
+      --data '{"role_id":"'"${ROLE_ID}"'","secret_id":"'"${SECRET_ID}"'"}' \
+      ${VAULT_ADDR}/v1/auth/approle/login | jq -r .auth.client_token)
     vault read -format=json secret/dsde/datarepo/dev/sa-key.json | \
-          jq .data > ${GOOGLE_APPLICATION_CREDENTIALS}
-    jq -r .private_key ${GOOGLE_APPLICATION_CREDENTIALS} > $GOOGLE_SA_CERT
-    chmod 600 $GOOGLE_SA_CERT
+      jq .data > ${GOOGLE_APPLICATION_CREDENTIALS}
+    jq -r .private_key ${GOOGLE_APPLICATION_CREDENTIALS} > ${GOOGLE_SA_CERT}
+    chmod 600 ${GOOGLE_SA_CERT}
   fi
 }
 
