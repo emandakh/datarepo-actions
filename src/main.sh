@@ -77,9 +77,6 @@ function configureCredentials {
           jq .data > ${GOOGLE_APPLICATION_CREDENTIALS}
     jq -r .private_key ${GOOGLE_APPLICATION_CREDENTIALS} > $GOOGLE_SA_CERT
     chmod 600 $GOOGLE_SA_CERT
-  else
-    echo "required var not defined for function configureCredentials"
-    exit 1
   fi
 }
 
@@ -90,9 +87,6 @@ function googleAuth {
     gcloud config set compute/zone ${google_zone}
     gcloud config set project ${google_project}
     gcloud auth configure-docker
-  else
-    echo "required var not defined for function googleAuth"
-    exit 1
   fi
 }
 
