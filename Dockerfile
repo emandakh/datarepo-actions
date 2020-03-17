@@ -32,5 +32,5 @@ RUN gcloud components install app-engine-java kubectl
 # copy down action functions
 COPY ["src", "/src/"]
 RUN chmod -R +wx /src
-USER jade
+
 ENTRYPOINT ["sh","/src/main.sh"]
