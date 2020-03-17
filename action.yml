@@ -9,10 +9,8 @@ inputs:
     required: true
   role_id:
     description: 'role_id for vault'
-    required: true
   secret_id:
     description: 'secret_id for vault'
-    required: true
   vault_address:
     description: 'https address for vault'
     default: 'https://clotho.broadinstitute.org:8200'

@@ -23,20 +23,16 @@ function parseInputs {
     echo "Input subcommand cannot be empty"
     exit 1
   fi
-  if [ "${INPUT_ROLE_ID}" != "" ]; then
-    role_id=${INPUT_ROLE_ID}
-  else
-    echo "Input role_id cannot be empty"
-    exit 1
-  fi
-  if [ "${INPUT_SECRET_ID}" != "" ]; then
-    secret_id=${INPUT_SECRET_ID}
-  else
-    echo "Input secret_id cannot be empty"
-    exit 1
-  fi
 
   # Optional inputs
+  role_id=""
+  if [ -n "${INPUT_ROLE_ID}" ]; then
+    role_id=${INPUT_ROLE_ID}
+  fi
+  secret_id=""
+  if [ -n "${INPUT_SECRET_ID}" ]; then
+    secret_id=${INPUT_SECRET_ID}
+  fi
   vault_address="${INPUT_VAULT_ADDRESS}"
   google_zone="${INPUT_GOOGLE_ZONE}"
   google_project="${INPUT_GOOGLE_PROJECT}"
