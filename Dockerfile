@@ -1,15 +1,14 @@
 FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
 
-#add user
-RUN addgroup -S jade
-RUN adduser -D jade -G jade
-USER jade
-
 #environment vars
 ENV HELM_VERSION v3.1.2
 ENV CONSUL_TEMPLATE_VERSION 0.24.1
 ENV YQ_VERSION 3.2.1
 
+#add user
+RUN addgroup -S jade
+RUN adduser -D jade -G jade
+USER jade
 
 #install consul-template
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /
