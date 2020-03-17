@@ -1,5 +1,10 @@
 FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
 
+#add user
+RUN addgroup -S jade
+RUN adduser -D jade -G jade
+USER jade
+
 #environment vars
 ENV HELM_VERSION v3.1.2
 ENV CONSUL_TEMPLATE_VERSION 0.24.1
