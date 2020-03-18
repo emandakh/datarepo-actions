@@ -85,7 +85,7 @@ function googleAuth {
     # configure integration prerequisites
     gcloud config set compute/zone ${google_zone}
     gcloud config set project ${google_project}
-    gcloud auth configure-docker
+    gcloud auth configure-docker --quiet
     echo 'Set google sdk to SA user'
   else
     echo "Required var not defined for function googleAuth"
