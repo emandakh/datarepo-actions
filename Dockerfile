@@ -4,7 +4,7 @@ FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
 ENV HELM_VERSION v3.1.2
 ENV CONSUL_TEMPLATE_VERSION 0.24.1
 ENV YQ_VERSION 3.2.1
-ENV VAULT_VERSION=1.3.2
+ENV VAULT_VERSION 1.3.2
 
 #install consul-template
 ADD https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /
@@ -18,7 +18,7 @@ RUN unzip consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip && \
 ADD https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip /
 
 RUN unzip vault_${VAULT_VERSION}_linux_amd64.zip && \
-    mv consul-template vault /usr/local/bin/ && \
+    mv vault /usr/local/bin/vault && \
     rm -rf /vault_${VAULT_VERSION}_linux_amd64.zip && \
     apk add --no-cache curl
 
