@@ -1,0 +1,12 @@
+{
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "client_email": "jade-k8-sa@broad-jade-dev.iam.gserviceaccount.com",
+  "client_id": "118096443612526770174",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jade-k8-sa%40broad-jade-dev.iam.gserviceaccount.com",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC4DpwcszH5SL9P\nP/tVhSIspJXvWRD5W/w5ScNRbqDprCQb720JEsnooTaWtlatfVeu7Qx2C0aqzQ7s\nxqAjvkEqRQNMlOl9p9WL/vm7zpoAgLOZkk2uNq/s2T8f0ow7Ta3pzAT0isjn7oPg\nDkp9bPkBTBeZXO8AjgKi3tXFmGPdK8eF4yNLVhHyddG46UvFGlfhdcB1wMlo0ei9\nSqSarn/Z+rfPvY/bPljwDabBy8Ux2Viinb0hECo620/PotVJyVge9VHJOOWPcLoS\ndMvr0RAGWZ70ET06pNbjSdjctVr0d3js4N/kXWsCqwMmNdVeFE8JrpH6RWXUE2R8\nZwy41vEJAgMBAAECggEAQewxq/Het0uAAfGHoqTRja3Rae27r6RrnVU3GMaH6cnX\nEQ5bPkG1gZWkSKy8NN1M94E90lXNlMVnUBUALG0rR+l5+gbn7jKbwM2tQsAH1qBC\nM4H8QqahsjJJcqtlwKPc431IVRIUTUXXg/t6YJwUP4uydCKeE9PJS+6GIISpWACH\nZgxEUYgonOy1LuPT5gh37DFocnTyXFlUK6ao+WdZyvEEvPXvIWxCbS0FSoG3u3o+\nL1Gnx+M3Ai5HYaK76h959E+D7aJWeDEBGsS8mgTCdqHX5UrvDKWDNDqyr2ADUqIA\nRVaUBNVsww71/+zq7GxN8M2Jm/sxCNZFIkQcGhnt1QKBgQDm8Fc69e68GGSAD/9Z\nm9y2AL1op0wRPo0hRLxO348LrRkt6NJGKnzv6lGHid88iPldpMGGzvVXsDZsK6dm\n+0kAWiC+nAfgJntdQZFfoelHqFB72UlRcZvAW1FeNHM9uhgDcamv1Y+roi8T4F86\nO2hnyXpuHoGMIXrOx81Ty/ICtwKBgQDMB9uEuBPIIu2ZpRBZSoiA5ryW45wMiCb0\nw63sVU94r/E23OOWTV/bPNxNB4iFl8kG1F/9dgeYlP2rh4QOnh9zqICB+dTfvADr\ne1TU/Ylfsl6dHwDkGd2g7tamMZ0TIf5+T8Rivr9r2jMir4UP+CKRs6luYqpUb2OX\nlh15u5vqPwKBgHQb5l+Ygp1DTlQstt+gw4kmOhTB+Da7Uk2lt1+Yet0N/Jjec8of\nVo1xK+iPYxOWcnmoejyDFUsvJ02fbR0TvhJVPh1XaYZDEsdCTgrc5uLGNyDtkDVI\nf1xpDTHmAQLJ64TfwsbLAt7yPeUqa/ZlJAr6e3meENgZhRstzYgSA+1lAoGBAJtK\nS7lbRaspcoBj0uqzQOwjMl0CBi6/ni7jlMfxMpigCU8BlrM6VwAN9XsnhbBwk5AA\nKsNGh4eJtv1MGqXpkfS8xnqnBW/4rxaL+0hVZK6Sm1KpW0tBqJ8pyfQahPwf/oxy\n9/1UQ2u6WvtGbld2PBF7ljSvIgc79KhWmD6kHYqPAoGANAvRbM1VLCekQhABWg2t\nsdeF+9/dbOkj4UL/XataQFdQ53EDzdptJqVaUjGiliv0W3JFbkMqSNwCvHlXXO4X\n1ZhsiPu8RrLo38xAeNRWBWa7E/hydMU4d9LFF3nhoIt7Ul1hWVqoLUAP8Y5rP0UF\nLu62SlLWwO9um7nidG6pdEo=\n-----END PRIVATE KEY-----\n",
+  "private_key_id": "80a213fd27c69196e147bc2f5678f7386aae1df1",
+  "project_id": "broad-jade-dev",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "type": "service_account"
+}

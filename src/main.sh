@@ -74,7 +74,7 @@ function configureCredentials {
       --request POST \
       --data '{"role_id":"'"${role_id}"'","secret_id":"'"${secret_id}"'"}' \
       ${vault_address}/v1/auth/approle/login | jq -r .auth.client_token)
-    /usr/local/bin/vault read -format=json secret/dsde/datarepo/dev/sa-key.json | jq .data > gcpcreds.json)
+    /usr/local/bin/vault read -format=json secret/dsde/datarepo/dev/sa-key.json | jq .data > gcpcreds.json
     echo 'Configured google sdk credentials from vault'
   fi
 }
