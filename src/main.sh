@@ -74,15 +74,14 @@ function configureCredentials {
       --request POST \
       --data '{"role_id":"'"${role_id}"'","secret_id":"'"${secret_id}"'"}' \
       ${vault_address}/v1/auth/approle/login | jq -r .auth.client_token)
-    /usr/local/bin/vault read -format=json secret/dsde/datarepo/dev/sa-key.json | \
-      jq .data > /tmp/$GOOGLE_APPLICATION_CREDENTIALS
+    /usr/local/bin/vault read -format=json secret/dsde/datarepo/dev/sa-key.json | jq .data > gcpcreds.json)
     echo 'Configured google sdk credentials from vault'
   fi
 }
 
 function googleAuth {
-  if [[ "/tmp/$GOOGLE_APPLICATION_CREDENTIALS" != "" ]] && [[ "${google_zone}" != "" ]] && [[ "${google_project}" != "" ]]; then
-    gcloud auth activate-service-account --key-file /tmp/$GOOGLE_APPLICATION_CREDENTIALS
+  if [[ "${google_zone}" != "" ]] && [[ "${google_project}" != "" ]]; then
+    gcloud auth activate-service-account --key-file gcpcreds.json
     # configure integration prerequisites
     gcloud config set compute/zone ${google_zone}
     gcloud config set project ${google_project}
