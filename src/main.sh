@@ -69,6 +69,7 @@ function parseInputs {
 
 function configureCredentials {
   if [[ "${role_id}" != "" ]] && [[ "${secret_id}" != "" ]] && [[ "${vault_address}" != "" ]]; then
+    export VAULT_ADDR=${vault_address}
     export VAULT_TOKEN=$(curl \
       --request POST \
       --data '{"role_id":"'"${role_id}"'","secret_id":"'"${secret_id}"'"}' \
